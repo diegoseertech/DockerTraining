@@ -61,6 +61,106 @@
         }
       }
     },
+    "/post/{post_id}": {
+      "get": {
+        "parameters": [{
+          "name": "post_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/definitions/post_param"
+          },
+          "required": "true"
+        }],
+        "tags": [
+          "blog post"
+        ],
+        "summary": "Get single blog post",
+        "description": "",
+        "operationId": "getPost",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "{'title':title,'post':post, _id:id}"
+          }
+        }
+      },
+      "put": {
+        "parameters": [{
+          "name": "post_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/definitions/post_param"
+          },
+          "required": "true"
+        }],
+        "tags": [
+          "blog post"
+        ],
+        "summary": "Update a blog post",
+        "description": "",
+        "operationId": "editPost",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Send object that needs to be added to the Blog",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/blogpostDB"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "[{'title':title,'post':post, _id:id}]"
+          }
+        }
+      },
+      "delete": {
+        "parameters": [{
+          "name": "post_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/definitions/post_param"
+          },
+          "required": "true"
+        }],
+        "tags": [
+          "blog post"
+        ],
+        "summary": "Delete a blog post",
+        "description": "",
+        "operationId": "deletePost",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "{}"
+          }
+        }
+      }
+    },
     "/posts": {
       "get": {
         "tags": [
@@ -104,6 +204,16 @@
       },
       "xml": {
         "name": "Pet"
+      }
+    },
+    "post_param": {
+      "properties": {
+        "post_id":{
+          "type": "string"
+        }
+      },
+      "example": {
+        "post_id": "kim.javier@seer-technologies.com"
       }
     }
   }
