@@ -30,6 +30,16 @@
 				<div class="post">
 					<div> {{ post.post }} </div>
 				</div>
+				<div>
+					<form action="/edit/{{ post._id }}" method="GET">
+						<input type="submit" id="input-submit" value="EDIT"></input>
+					</form>
+				</div>
+				<div>
+					<form action="/delete_post/{{ post._id }}" method="POST">
+						<input type="submit" id="input-submit" value="DELETE"></input>
+					</form>
+				</div>
 		  	</div>
 		{% endfor %}
 	

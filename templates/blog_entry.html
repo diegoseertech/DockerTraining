@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>
+		{{ post.title }}
+	</title>
+	{% block headCss %}
+		<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/base.css')}}" type="text/css">
+	{% endblock %}
+</head>
+	<body class="body">
+		<h2>Welcome to your blog</h2>
+		<form class="form-border" action="/edit_post/{{ post._id }}" method="POST">
+			<div class="title wrapper">
+				<input id="input-title" type="text" name="title" placeholder="Title" value="{{ post.title }}"></input>
+			</div>
+
+			<div class="title wrapper">
+				<textarea id="input-post" name="post">{{ post.post }}</textarea>
+			</div>
+			<div  class="description wrapper">
+				<input type="submit" id="input-submit" value="EDIT"></input>
+			</div>
+		</form>
+	</body>
+
+</html>
+
+
+
+
+
